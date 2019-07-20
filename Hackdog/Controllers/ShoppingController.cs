@@ -82,7 +82,7 @@ namespace Hackdog.Controllers
 
         [HttpGet]
         [ResponseType(typeof(Cart))]
-        [Route("api/v1/ShoShowCartItems")]
+        [Route("api/v1/ShowCartItems")]
         public IHttpActionResult ShowCartItems(string username)
         {
             IList<Cart> cartItems = db.Carts.Include("Product").ToList();
