@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_nav_graph"
+            app:startDestination="@id/rangeDetectorFragment">
+    <fragment android:id="@+id/rangeDetectorFragment" android:name="com.hackdog.hackathon.RangeDetectorFragment"
+              android:label="fragment_range_detector" tools:layout="@layout/fragment_range_detector">
+        <action android:id="@+id/action_rangeDetectorFragment_to_shoppingListFragment"
+                app:destination="@id/shoppingListFragment"/>
+    </fragment>
+    <fragment android:id="@+id/barcodeScannerFragment" android:name="com.hackdog.hackathon.BarcodeScannerFragment"
+              android:label="fragment_barcode_scanner" tools:layout="@layout/fragment_barcode_scanner">
+        <action android:id="@+id/action_barcodeScannerFragment_to_shoppingListFragment"
+                app:destination="@id/shoppingListFragment"/>
+    </fragment>
+    <fragment android:id="@+id/shoppingListFragment" android:name="com.hackdog.hackathon.ShoppingListFragment"
+              android:label="fragment_shopping_list" tools:layout="@layout/fragment_shopping_list">
+        <action android:id="@+id/action_shoppingListFragment_to_barcodeScannerFragment"
+                app:destination="@id/barcodeScannerFragment"/>
+    </fragment>
+</navigation>
