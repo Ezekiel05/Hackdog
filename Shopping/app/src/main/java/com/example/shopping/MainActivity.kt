@@ -1,5 +1,6 @@
 package com.example.shopping
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -75,7 +76,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_cart -> {
-
+                val i = Intent(this, Cart::class.java)
+                startActivity(i)
             }
             R.id.nav_info -> {
 

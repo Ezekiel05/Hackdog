@@ -9,15 +9,16 @@
         tools:showIn="@layout/app_bar_main"
         tools:context=".MainActivity" android:background="@drawable/b1">
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars[2]"
-            android:id="@+id/imageView2" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            android:layout_width="171dp"
+            android:layout_height="205dp" app:srcCompat="@drawable/ic_person_purple_24dp"
+            android:id="@+id/imageView5" android:layout_marginBottom="468dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.139"/>
+            android:layout_marginStart="8dp" app:layout_constraintVertical_bias="0.0"
+            tools:ignore="VectorDrawableCompat" app:layout_constraintHorizontal_bias="0.513"/>
     <TextView
             android:text="Richmond A. Valderas"
             android:layout_width="278dp"
@@ -27,8 +28,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintVertical_bias="0.374" android:textColor="#FC090707" android:textSize="24sp"/>
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintVertical_bias="0.325" android:textColor="#FC090707" android:textSize="24sp"/>
     <TextView
             android:text="09177775596"
             android:layout_width="178dp"
@@ -39,7 +40,7 @@
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" android:textColor="#090707" android:textSize="18sp"
-            app:layout_constraintHorizontal_bias="0.497" app:layout_constraintVertical_bias="0.465"
+            app:layout_constraintHorizontal_bias="0.557" app:layout_constraintVertical_bias="0.43"
             style="@android:style/Widget.Holo.TextView"/>
     <TextView
             android:text="318 San Roque St. Pasay City"
@@ -50,6 +51,6 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintVertical_bias="0.531" android:textColor="#0E0A0A"
-            android:textSize="18sp"/>
+            android:layout_marginStart="8dp" app:layout_constraintVertical_bias="0.499" android:textColor="#0E0A0A"
+            android:textSize="18sp" app:layout_constraintHorizontal_bias="0.586"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

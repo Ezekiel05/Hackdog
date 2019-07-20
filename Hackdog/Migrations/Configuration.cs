@@ -43,22 +43,22 @@ namespace Hackdog.Migrations
             {
                 context.Products.AddOrUpdate(b => b.Barcode,
                     //Supermarket 1
-                    new Models.Product() { Barcode = "4800014534234", Stocks = 10, Name = "Nestea", Price = 24.75, Isle = context.Isles.Find(1), ExpirationDate = DateTime.Parse("03/13/2020") },
-                    new Models.Product() { Barcode = "4801981107971", Stocks = 10, Name = "Wilkins Pure", Price = 16.00, Isle = context.Isles.Find(1), ExpirationDate = DateTime.Parse("06/20/2020") },
-                    new Models.Product() { Barcode = "4800047865152", Stocks = 10, Name = "GreenCross Alcohol", Price = 29.75, Isle = context.Isles.Find(2), ExpirationDate = DateTime.Parse("06/21/2020") },
-                    new Models.Product() { Barcode = "4809013300215", Stocks = 10, Name = "Kojic Acid Soap", Price = 50.25, Isle = context.Isles.Find(2), ExpirationDate = DateTime.Parse("06/22/2020") },
-                    new Models.Product() { Barcode = "8850567104039", Stocks = 10, Name = "Milk", Price = 84.75, Isle = context.Isles.Find(3), ExpirationDate = DateTime.Parse("06/23/2020") },
-                    new Models.Product() { Barcode = "4806502163924", Stocks = 10, Name = "Butter", Price = 43.75, Isle = context.Isles.Find(3), ExpirationDate = DateTime.Parse("06/24/2020") },
-                    new Models.Product() { Barcode = "9904036413005", Stocks = 10, Name = "Nissin Cup Noodles Cheese Curry", Price = 119.75, Isle = context.Isles.Find(4), ExpirationDate = DateTime.Parse("06/24/2020") },
+                    new Models.Product() { Barcode = "4800014534234", Stocks = 10, Name = "Nestea", Price = 24.75, Isle = context.Isles.Find(1), Description = "Drink" },
+                    new Models.Product() { Barcode = "4801981107971", Stocks = 10, Name = "Wilkins Pure", Price = 16.00, Isle = context.Isles.Find(1), Description = "Drink" },
+                    new Models.Product() { Barcode = "4800047865152", Stocks = 10, Name = "GreenCross Alcohol", Price = 29.75, Isle = context.Isles.Find(2), Description = "Sanitation" },
+                    new Models.Product() { Barcode = "4809013300215", Stocks = 10, Name = "Kojic Acid Soap", Price = 50.25, Isle = context.Isles.Find(2), Description = "Beauty Product" },
+                    new Models.Product() { Barcode = "8850567104039", Stocks = 10, Name = "Milk", Price = 84.75, Isle = context.Isles.Find(3), Description = "Drink" },
+                    new Models.Product() { Barcode = "4806502163924", Stocks = 10, Name = "Butter", Price = 43.75, Isle = context.Isles.Find(3), Description = "Dairy " },
+                    new Models.Product() { Barcode = "9904036413005", Stocks = 10, Name = "Nissin Cup Noodles Cheese Curry", Price = 119.75, Isle = context.Isles.Find(4), Description = "Cup Noodles" },
 
                     //Supermarket 2
-                    new Models.Product() { Barcode = "4800014534234", Stocks = 10, Name = "Nestea", Price = 24.75, Isle = context.Isles.Find(5), ExpirationDate = DateTime.Parse("03/13/2020") },
-                    new Models.Product() { Barcode = "4801981107971", Stocks = 10, Name = "Wilkins Pure", Price = 16.00, Isle = context.Isles.Find(5), ExpirationDate = DateTime.Parse("06/20/2020") },
-                    new Models.Product() { Barcode = "4800047865152", Stocks = 10, Name = "GreenCross Alcohol", Price = 29.75, Isle = context.Isles.Find(6), ExpirationDate = DateTime.Parse("06/21/2020") },
-                    new Models.Product() { Barcode = "4809013300215", Stocks = 10, Name = "Kojic Acid Soap", Price = 50.25, Isle = context.Isles.Find(6), ExpirationDate = DateTime.Parse("06/22/2020") },
-                    new Models.Product() { Barcode = "8850567104039", Stocks = 10, Name = "Milk", Price = 84.75, Isle = context.Isles.Find(7), ExpirationDate = DateTime.Parse("06/23/2020") },
-                    new Models.Product() { Barcode = "4806502163924", Stocks = 10, Name = "Butter", Price = 43.75, Isle = context.Isles.Find(7), ExpirationDate = DateTime.Parse("06/24/2020") },
-                    new Models.Product() { Barcode = "9904036413005", Stocks = 10, Name = "Nissin Cup Noodles Cheese Curry", Price = 119.75, Isle = context.Isles.Find(8), ExpirationDate = DateTime.Parse("06/24/2020") }
+                    new Models.Product() { Barcode = "4800014534234", Stocks = 10, Name = "Nestea", Price = 24.75, Isle = context.Isles.Find(5), Description = "Drink" },
+                    new Models.Product() { Barcode = "4801981107971", Stocks = 10, Name = "Wilkins Pure", Price = 16.00, Isle = context.Isles.Find(1), Description = "Drink" },
+                    new Models.Product() { Barcode = "4800047865152", Stocks = 10, Name = "GreenCross Alcohol", Price = 29.75, Isle = context.Isles.Find(2), Description = "Sanitation" },
+                    new Models.Product() { Barcode = "4809013300215", Stocks = 10, Name = "Kojic Acid Soap", Price = 50.25, Isle = context.Isles.Find(2), Description = "Beauty Product" },
+                    new Models.Product() { Barcode = "8850567104039", Stocks = 10, Name = "Milk", Price = 84.75, Isle = context.Isles.Find(7), Description = "Drink" },
+                    new Models.Product() { Barcode = "4806502163924", Stocks = 10, Name = "Butter", Price = 43.75, Isle = context.Isles.Find(7), Description = "Dairy " },
+                    new Models.Product() { Barcode = "9904036413005", Stocks = 10, Name = "Nissin Cup Noodles Cheese Curry", Price = 119.75, Isle = context.Isles.Find(4), Description = "Cup Noodles" }
                 );
             }
         }

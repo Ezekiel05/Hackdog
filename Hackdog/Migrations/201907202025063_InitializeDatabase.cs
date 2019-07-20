@@ -32,7 +32,7 @@ namespace Hackdog.Migrations
                         Barcode = c.String(),
                         Name = c.String(),
                         Price = c.Double(nullable: false),
-                        ExpirationDate = c.DateTime(nullable: false),
+                        Description = c.String(),
                         Stocks = c.Int(nullable: false),
                         Isle_Id = c.Int(),
                     })

@@ -129,7 +129,7 @@ namespace Hackdog.Controllers
 
         [HttpGet]
         [Route("GetProductsByBarcode")]
-        [ResponseType(typeof(IList<Product>))]
+        [ResponseType(typeof(Product))]
         public IHttpActionResult GetProductsByBarcode(string barcode)
         {
             List<Product> products = db.Products
@@ -151,7 +151,7 @@ namespace Hackdog.Controllers
                     .FirstOrDefault()
              );
 
-            return Ok(products);
+            return Ok(products.FirstOrDefault());
         }
 
         [HttpPost]
@@ -187,7 +187,7 @@ namespace Hackdog.Controllers
 
         [HttpPost]
         [Route("PurchaseCheckedCartItems")]
-        public IHttpActionResult PurchaseCheckedCartItems(string username, IList<Cart> cartItems)
+        public IHttpActionResult PurchaseCheckedCartItems(string username, [FromBody] IList<Cart> cartItems)
         {
             Cart[] selectedItems = cartItems.Where(i => !i.IsPurchased && i.IsForPurchase).ToArray();
             db.Carts.AddOrUpdate(selectedItems);
@@ -208,7 +208,7 @@ namespace Hackdog.Controllers
         [HttpGet]
         [ResponseType(typeof(Cart))]
         [Route("RemoveCartItem")]
-        public IHttpActionResult RemoveCartItems(string username, IList<Cart> cartItems)
+        public IHttpActionResult RemoveCartItems(string username, [FromBody] IList<Cart> cartItems)
         {
             db.Carts.RemoveRange(cartItems);
             db.SaveChanges();
@@ -218,7 +218,7 @@ namespace Hackdog.Controllers
         [HttpPost]
         [ResponseType(typeof(Product))]
         [Route("AddNewProduct")]
-        public IHttpActionResult AddNewProduct(string barcode, string name, double price, DateTime expirationDate, int stocks, int isleId)
+        public IHttpActionResult AddNewProduct(string barcode, string name, double price, string description, int stocks, int isleId)
         {
             Isle isle = db.Isles.Find(isleId);
 
@@ -227,7 +227,7 @@ namespace Hackdog.Controllers
                 Barcode = barcode,
                 Name = name,
                 Price = price,
-                ExpirationDate = expirationDate,
+                Description = description,
                 Stocks = stocks,
                 Isle = isle
             };

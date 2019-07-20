@@ -11,7 +11,7 @@ namespace Hackdog.Models
         public string Barcode { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public string Description { get; set; }
         public int Stocks { get; set; }
         public Isle Isle { get; set; }
     }
