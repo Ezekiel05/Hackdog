@@ -113,9 +113,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907201049544_InitializeDatabase.cs" />
-    <Compile Include="Migrations\201907201049544_InitializeDatabase.Designer.cs">
-      <DependentUpon>201907201049544_InitializeDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201907201334035_InitializeDatabase.cs" />
+    <Compile Include="Migrations\201907201334035_InitializeDatabase.Designer.cs">
+      <DependentUpon>201907201334035_InitializeDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -138,8 +138,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907201049544_InitializeDatabase.resx">
-      <DependentUpon>201907201049544_InitializeDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907201334035_InitializeDatabase.resx">
+      <DependentUpon>201907201334035_InitializeDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

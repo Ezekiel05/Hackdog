@@ -15,6 +15,9 @@ namespace Hackdog.Migrations
                         Username = c.String(),
                         Count = c.Int(nullable: false),
                         TotalPrice = c.Double(nullable: false),
+                        IsPurchased = c.Boolean(nullable: false),
+                        IsForPurchase = c.Boolean(nullable: false),
+                        IsAddedAsWishlist = c.Boolean(nullable: false),
                         Product_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
