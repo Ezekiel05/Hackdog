@@ -81,6 +81,7 @@ namespace Hackdog.Controllers
         {
             List<Product> products = db.Products
                 .Include("Isle")
+                .Where(s => s.Stocks != 0)
                 .ToList();
 
             IList<int> isleIds = products.Select(i => i.Isle.Id).ToList();
@@ -108,6 +109,7 @@ namespace Hackdog.Controllers
             List<Product> products = db.Products
                 .Include("Isle")
                 .Where(i => i.Isle.Id.Equals(Id))
+                .Where(s => s.Stocks != 0)
                 .ToList();
 
             IList<int> isleIds = products.Select(i => i.Isle.Id).ToList();
@@ -135,6 +137,7 @@ namespace Hackdog.Controllers
             List<Product> products = db.Products
                 .Include("Isle")
                 .Where(b => b.Barcode.Equals(barcode))
+                .Where(s => s.Stocks != 0)
                 .ToList();
 
             IList<int> isleIds = products.Select(i => i.Isle.Id).ToList();
@@ -159,22 +162,30 @@ namespace Hackdog.Controllers
         public IHttpActionResult AddToCart(string username, int productId, int count, bool IsWishListItem)
         {
             Product product = db.Products.Where(p => p.Id.Equals(productId)).FirstOrDefault();
+
             if (product.Stocks >= count)
             {
                 product.Stocks -= count;
                 db.Products.AddOrUpdate(product);
 
-                Cart cart = new Cart()
+                Cart cart = db.Carts.Where(u => 
+                        u.Username.Equals(username) && 
+                        u.IsPurchased.Equals(false) && 
+                        u.Product.Id.Equals(productId))
+                    .FirstOrDefault() ?? new Cart();
+
+                Cart cartToSave = new Cart()
                 {
+                    Id = cart.Id,
                     Username = username,
                     Product = product,
-                    Count = count,
-                    TotalPrice = product.Price * count,
+                    Count = count + cart.Count,
+                    TotalPrice = product.Price * (count + cart.Count),
                     IsPurchased = false,
                     IsAddedAsWishlist = IsWishListItem
                 };
 
-                db.Carts.Add(cart);
+                db.Carts.AddOrUpdate(i => i.Id, cartToSave);
                 db.SaveChanges();
 
                 return Ok();
@@ -201,7 +212,11 @@ namespace Hackdog.Controllers
         [Route("ShowCartItemsByUser")]
         public IHttpActionResult ShowCartItemsByUser(string username)
         {
-            IList<Cart> cartItems = db.Carts.Include("Product").ToList();
+            IList<Cart> cartItems = db.Carts
+                .Include("Product")
+                .Where(u => u.Username.Equals(username))
+                .ToList();
+
             return Ok(cartItems);
         }
 
@@ -236,6 +251,40 @@ namespace Hackdog.Controllers
             db.SaveChanges();
 
             return Ok();
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(IList<User>))]
+        [Route("GetAllUsers")]
+        public IHttpActionResult GetAllUsers()
+        {
+            IList<User> users = db.Users.ToList();
+            return Ok(users);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(User))]
+        [Route("UserLogin")]
+        public IHttpActionResult UserLogin(string username, string password)
+        {
+            User user = db.Users
+                .Where(u => u.UserName.Equals(username) && u.Password.Equals(password))
+                .FirstOrDefault();
+
+            return Ok(user);
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(Cart))]
+        [Route("ClearCartData")]
+        public IHttpActionResult ClearCartData()
+        {
+            IList<Cart> carts = db.Carts.ToList();
+
+            db.Carts.RemoveRange(carts);
+            db.SaveChanges();
+
+            return Ok(db.Carts);
         }
     }
 }

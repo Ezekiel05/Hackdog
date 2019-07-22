@@ -61,6 +61,21 @@ namespace Hackdog.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserName = c.String(),
+                        Password = c.String(),
+                        FullName = c.String(),
+                        Email = c.String(),
+                        ContactNumber = c.String(),
+                        Address = c.String(),
+                        DateJoined = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
@@ -71,6 +86,7 @@ namespace Hackdog.Migrations
             DropIndex("dbo.Isles", new[] { "SuperMarket_Id" });
             DropIndex("dbo.Products", new[] { "Isle_Id" });
             DropIndex("dbo.Carts", new[] { "Product_Id" });
+            DropTable("dbo.Users");
             DropTable("dbo.SuperMarkets");
             DropTable("dbo.Isles");
             DropTable("dbo.Products");

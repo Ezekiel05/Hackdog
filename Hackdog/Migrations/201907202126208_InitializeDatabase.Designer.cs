@@ -13,7 +13,7 @@ namespace Hackdog.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201907202025063_InitializeDatabase"; }
+            get { return "201907202126208_InitializeDatabase"; }
         }
         
         string IMigrationMetadata.Source

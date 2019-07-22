@@ -21,5 +21,6 @@ namespace Hackdog.Models
         public virtual DbSet<Isle> Isles { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
